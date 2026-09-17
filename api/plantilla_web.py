@@ -2,7 +2,7 @@
 """
 api/plantilla_web.py
 ====================
-La página que se ve en http://127.0.0.1:8000
+La página que se ve en la raíz del servidor (http://127.0.0.1:8000 por defecto).
 
 Es un único HTML sin dependencias externas: arrastras el Excel, se sube, se
 consulta el estado cada segundo y aparecen los botones de descarga.

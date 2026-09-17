@@ -10,7 +10,7 @@ Arrancar:
     # o bien
     uvicorn api.app:app --reload
 
-Y abrir http://127.0.0.1:8000
+Y abrir http://127.0.0.1:8000 (o el puerto que se haya dado con --puerto)
 
 Endpoints:
     GET  /                                     página para subir el archivo
@@ -354,4 +354,4 @@ def borrar(trabajo_id: str) -> dict:
 def al_arrancar() -> None:
     borrados = REGISTRO.limpiar()
     log.info("API lista. Trabajos caducados eliminados: %d", borrados)
-    log.info("Abre http://127.0.0.1:8000 para subir un archivo.")
+    log.info("Abre la raíz del servidor (/) para subir un archivo.")
