@@ -9,16 +9,20 @@ Con --vocabulario también escribe el vocabulario en JSON.
 """
 import argparse
 import json
+import sys
 from pathlib import Path
 
-from processors import vocabulario
-from processors.retaguear import retaguear_export
+RAIZ = Path(__file__).resolve().parent
+sys.path.insert(0, str(RAIZ))
+
+from processors import vocabulario                      # noqa: E402
+from processors.retaguear import retaguear_export       # noqa: E402
 
 
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("export")
-    p.add_argument("salida", nargs="?", default="output/organizacion.csv")
+    p.add_argument("salida", nargs="?", default=str(RAIZ / "output" / "organizacion.csv"))
     p.add_argument("--vocabulario", help="ruta donde escribir vocabulario.json")
     a = p.parse_args()
 

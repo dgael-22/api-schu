@@ -85,15 +85,20 @@ def main() -> int:
     # --- 4. originales intactos ---
     checksums = INPUT / ".checksums_originales.txt"
     if checksums.exists():
-        iguales = True
-        for linea in checksums.read_text().splitlines():
+        cambiados, faltan = [], []
+        for linea in checksums.read_text(encoding="utf-8").splitlines():
+            if not linea.strip():
+                continue
             md5, _, nombre = linea.partition("  ")
-            ruta = Path(nombre)
-            if not ruta.is_absolute():
-                ruta = INPUT / ruta.name
-            if ruta.exists() and hashlib.md5(ruta.read_bytes()).hexdigest() != md5.strip():
-                iguales = False
-        revisar(iguales, "Los archivos originales de input/ no se modificaron (MD5)")
+            # Sólo el nombre: una ruta de otra máquina no debe hacer que se salte.
+            ruta = INPUT / Path(nombre.strip()).name
+            if not ruta.exists():
+                faltan.append(ruta.name)
+            elif hashlib.md5(ruta.read_bytes()).hexdigest() != md5.strip():
+                cambiados.append(ruta.name)
+        revisar(not cambiados and not faltan,
+                "Los archivos originales de input/ no se modificaron (MD5)",
+                f"cambiados: {cambiados or 'ninguno'}  |  faltan: {faltan or 'ninguno'}")
     else:
         revisar(True, "No hay checksums guardados; se omite la comparación MD5")
 

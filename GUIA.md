@@ -81,7 +81,7 @@ python verificar.py               # 23 comprobaciones del resultado
 python enriquecer.py --limite 5   # completa los artículos incompletos
 python enriquecer.py --imagenes --minimo-imagenes 3 --limite 5
 python retaguear.py export.csv     # escribe output\organizacion.csv
-python -m unittest discover -s tests   # 43 pruebas, ninguna toca la red
+python -m unittest discover -s tests   # 53 pruebas, ninguna toca la red
 ```
 
 `retaguear.py` pasa un export de Shopify por el vocabulario cerrado
@@ -132,12 +132,13 @@ schu-catalogo\
   main.py              procesar por línea de comandos
   servidor.py          levantar la API
   enriquecer.py        enriquecer por línea de comandos
+  retaguear.py         reclasificar un export de Shopify con el vocabulario
   verificar.py         23 comprobaciones
   config\rules.py      TODAS las reglas de negocio
   processors\          lectura, limpieza, normalización, exportación
   enriquecedor\        motor + fuentes por marca
   api\                 FastAPI: app.py, trabajos.py, rutas_enriquecer.py
-  tests\               26 pruebas, ninguna toca la red
+  tests\               53 pruebas, ninguna toca la red
   input\  output\      entrada y salida
   ENRIQUECEDOR.md      el enriquecedor a detalle y cómo agregar una marca
 ```
