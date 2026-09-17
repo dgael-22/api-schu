@@ -25,7 +25,9 @@ sys.path.insert(0, str(RAIZ))
 
 from config import rules                       # noqa: E402
 from processors import normalizer              # noqa: E402
-from utils.helpers import texto                # noqa: E402
+from utils.helpers import consola_utf8, texto  # noqa: E402
+
+consola_utf8()
 
 INPUT, OUTPUT = RAIZ / "input", RAIZ / "output"
 OK, FALLO = "  OK  ", " FALLA"

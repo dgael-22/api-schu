@@ -21,6 +21,10 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent
 sys.path.insert(0, str(RAIZ))
 
+from utils.helpers import consola_utf8                 # noqa: E402
+
+consola_utf8()
+
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Arranca la API del procesador.")

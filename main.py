@@ -25,7 +25,9 @@ sys.path.insert(0, str(RAIZ))
 
 from config import rules                               # noqa: E402
 from processors.pipeline import procesar_catalogo      # noqa: E402
-from utils.helpers import configurar_logging           # noqa: E402
+from utils.helpers import configurar_logging, consola_utf8  # noqa: E402
+
+consola_utf8()
 
 CARPETA_INPUT = RAIZ / "input"
 CARPETA_OUTPUT = RAIZ / "output"

@@ -15,6 +15,10 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent
 sys.path.insert(0, str(RAIZ))
 
+from utils.helpers import consola_utf8                 # noqa: E402
+
+consola_utf8()
+
 from processors import vocabulario                      # noqa: E402
 from processors.retaguear import retaguear_export       # noqa: E402
 

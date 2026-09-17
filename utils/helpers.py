@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import logging
 import re
+import sys
 import unicodedata
 from typing import Any, Iterable
 
@@ -19,6 +20,17 @@ from config import rules
 # ---------------------------------------------------------------------------
 # Logging
 # ---------------------------------------------------------------------------
+
+def consola_utf8() -> None:
+    """Escribe la terminal en UTF-8 para que los acentos no salgan como '�'.
+
+    En Windows, si la salida va a un pipe o a otro programa, Python usa la
+    página de códigos del sistema (cp1252) y quien la lee espera UTF-8.
+    """
+    for flujo in (sys.stdout, sys.stderr):
+        if hasattr(flujo, "reconfigure"):
+            flujo.reconfigure(encoding="utf-8", errors="replace")
+
 
 def configurar_logging(verboso: bool = False) -> logging.Logger:
     nivel = logging.DEBUG if verboso else logging.INFO

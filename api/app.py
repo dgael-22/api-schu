@@ -49,6 +49,9 @@ from api.plantilla_web import PAGINA                  # noqa: E402
 from config import rules                              # noqa: E402
 from processors.pipeline import procesar_catalogo     # noqa: E402
 from api.rutas_enriquecer import montar as montar_enriquecedor  # noqa: E402
+from utils.helpers import consola_utf8                # noqa: E402
+
+consola_utf8()
 
 log = logging.getLogger("procesador.api")
 logging.basicConfig(level=logging.INFO,
