@@ -7,8 +7,7 @@ por handle, lo que cada producto debe tener en la tienda: tags, Vendor, Type y
 los metafields de los filtros.
 
 No genera un CSV para importar en Shopify —un CSV parcial hace creer a Shopify
-que el producto perdió sus variantes—. La salida la consume el middleware
-(`npm run shopify:organizar`), que escribe por la API campo por campo.
+que el producto perdió sus variantes—.
 """
 from __future__ import annotations
 

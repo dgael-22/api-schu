@@ -207,8 +207,7 @@ async def retaguear(
 ):
     """
     Devuelve un CSV con, por handle: tags, Vendor, Type y los metafields de los
-    filtros. **No es para importar en Shopify**: lo aplica el middleware con
-    `npm run shopify:organizar`.
+    filtros. **No es para importar en Shopify**.
     """
     from processors.retaguear import retaguear_export
 

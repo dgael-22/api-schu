@@ -2,8 +2,6 @@
 
 Convierte el concentrado de Excel del proveedor (SAP Hybris de Flexi/Quirelli) en el export exacto de productos de Shopify, y reclasifica exports de la tienda con el vocabulario cerrado. Python · FastAPI. Guía de uso: `GUIA.md`.
 
-**Es el proyecto principal.** `Downloads\excel-shopify-processor` es una copia sincronizada el 15 sep: un cambio de reglas se hace aquí y se copia allá, comprobando que `retaguear.py` dé el mismo CSV en ambos.
-
 ## Comandos
 
 ```bash
@@ -12,17 +10,17 @@ python main.py                          # lee input/, escribe output/
 python verificar.py                     # debe salir 23/23 antes de dar por buena una salida
 python -m unittest discover -s tests    # 53 pruebas, ninguna toca la red
 python servidor.py                      # API en http://127.0.0.1:8000 · /docs
-python retaguear.py <export.csv> D:\api-ct\data\organizacion.csv --vocabulario D:\api-ct\data\vocabulario.json
+python retaguear.py <export.csv>        # escribe output/organizacion.csv
 ```
 
-`retaguear.py` y `POST /api/retaguear` devuelven, por handle, tags, Vendor, Type y los metafields de los filtros. **No es un CSV para importar**: lo aplica `D:\api-ct` con `npm run shopify:organizar`. `GET /api/vocabulario` da las listas en JSON.
+`retaguear.py` y `POST /api/retaguear` devuelven, por handle, tags, Vendor, Type y los metafields de los filtros. **No es un CSV para importar** en Shopify. `GET /api/vocabulario` da las listas en JSON.
 
 ## Reglas del proyecto
 
 - **Toda regla de negocio vive en `config/rules.py`**, no en el procesador.
 - **Código y comentarios en español.**
 - **No inventar datos.** Si el origen no lo dice, el campo queda vacío y se reporta. `Product Category` va vacía a propósito.
-- Respaldo en `_respaldo/` antes de tocar un procesador.
+- Antes de tocar un procesador, commit en git: el historial es el respaldo.
 
 ## Vocabulario cerrado de tags (8.1 de rules.py)
 

@@ -816,7 +816,7 @@ METAFIELDS_FILTRO = {
 }
 
 # Las mismas columnas van en el CSV del Excel, para que los filtros entren en
-# la misma importación y no haga falta correr shopify:organizar después.
+# la misma importación y no haga falta un segundo paso después.
 # Formato de Shopify: "Nombre (product.metafields.custom.clave)" y, en las
 # listas, los valores separados por "; ". Las definiciones ya existen en la
 # tienda con valores cerrados: un valor fuera de la lista hace fallar la fila.

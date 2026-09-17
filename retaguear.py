@@ -5,7 +5,7 @@ Reclasifica un export de productos de Shopify con el vocabulario cerrado.
     python retaguear.py <export.csv> [salida.csv] [--vocabulario vocabulario.json]
 
 La salida trae, por handle: tags, Vendor, Type y los metafields de los filtros.
-Con --vocabulario también escribe el vocabulario en JSON para el middleware.
+Con --vocabulario también escribe el vocabulario en JSON.
 """
 import argparse
 import json

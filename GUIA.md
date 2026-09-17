@@ -80,13 +80,12 @@ python main.py                    # procesa input\ y escribe output\
 python verificar.py               # 23 comprobaciones del resultado
 python enriquecer.py --limite 5   # completa los artículos incompletos
 python enriquecer.py --imagenes --minimo-imagenes 3 --limite 5
-python retaguear.py export.csv D:\api-ct\data\organizacion.csv --vocabulario D:\api-ct\data\vocabulario.json
+python retaguear.py export.csv     # escribe output\organizacion.csv
 python -m unittest discover -s tests   # 43 pruebas, ninguna toca la red
 ```
 
 `retaguear.py` pasa un export de Shopify por el vocabulario cerrado
-(`config/rules.py`, secciones 8.1 y 8.2). Su salida NO se importa en Shopify:
-la aplica el middleware con `npm run shopify:organizar`.
+(`config/rules.py`, secciones 8.1 y 8.2). Su salida NO se importa en Shopify.
 
 Las dos vías llaman al mismo código: `processors/pipeline.py` para procesar y
 `enriquecedor/tarea.py` para enriquecer. No hay dos versiones de nada.
@@ -140,8 +139,6 @@ schu-catalogo\
   api\                 FastAPI: app.py, trabajos.py, rutas_enriquecer.py
   tests\               26 pruebas, ninguna toca la red
   input\  output\      entrada y salida
-  _respaldo\           versiones anteriores de los archivos que se modificaron
-  README.md            el procesador a detalle
   ENRIQUECEDOR.md      el enriquecedor a detalle y cómo agregar una marca
 ```
 

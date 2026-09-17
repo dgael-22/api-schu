@@ -74,7 +74,7 @@ def _revisar_una(url: str) -> dict:
         import urllib.request
 
         peticion = urllib.request.Request(url, method="HEAD",
-                                          headers={"User-Agent": "excel-shopify-processor/1.0"})
+                                          headers={"User-Agent": "schu-catalogo/1.0"})
         with urllib.request.urlopen(peticion, timeout=rules.IMAGEN_TIMEOUT_SEGUNDOS) as respuesta:
             resultado["codigo"] = respuesta.status
             resultado["content_type"] = respuesta.headers.get("Content-Type", "")
