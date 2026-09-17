@@ -1,0 +1,10 @@
+# Dependencias SÓLO del enriquecedor. El procesador funciona sin ellas.
+#
+# El sitio de Flexi es una SPA de SAP Commerce: el HTML que llega por HTTP
+# viene vacío y el catálogo se pinta con JavaScript, así que hace falta un
+# navegador de verdad.
+#
+# Instalación:
+#   pip install -r requirements-enriquecer.txt
+#   python -m playwright install chromium
+playwright>=1.44

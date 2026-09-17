@@ -1,0 +1,8 @@
+# Procesamiento de Excel (necesario siempre)
+pandas>=2.0
+openpyxl>=3.1
+
+# API HTTP (sólo si vas a usar servidor.py)
+fastapi>=0.110
+uvicorn[standard]>=0.27
+python-multipart>=0.0.9

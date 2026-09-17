@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+output/*.xlsx
+output/*.csv
+.DS_Store
+~$*
+input/*
+!input/.gitkeep
+output/*
+!output/.gitkeep
+.claude/
